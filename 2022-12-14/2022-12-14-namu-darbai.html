@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022-12-14 Namų darbai</title>
+</head>
+<body>
+    <script>
+function rand(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+//Masyvai
+//1 užduotis
+//Sugeneruokite 10 skaičių masyvą pagal taisyklę: Du pirmi skaičiai- atsitiktiniai 
+//nuo 5 iki 25. Trečias, pirmo ir antro suma. Ketvirtas- antro ir trečio suma. 
+//Penktas trečio ir ketvirto suma ir t.t.
+document.write('<h2>Pirmoji užduotis</h2>');
+
+let array = [rand(5, 25), rand(5, 25)];
+
+for (let i = 0; i < 8; i++) {
+    array.push(array[i] + array[i + 1]);
+}
+
+document.write(array);
+
+//2 užduotis
+//Sukurkite masyvą iš 10 elementų. Kiekvienas masyvo elementas turi būti masyvas 
+//su atsitiktiniu kiekiu nuo 2 iki 20 elementų. Elementų reikšmės atsitiktinai parinktos 
+//raidės iš intervalo A-Z. Išrūšiuokite antro lygio masyvus pagal abėcėlę 
+//(t.y. tuos kur su raidėm).
+document.write('<h2>Antroji užduotis</h2>');
+
+array = [];
+const string = 'abcdefghijklmnoprstuvwqxyz';
+
+
+for(let i = 0; i < 10; i++) {
+    let innerArray = [];
+    let arrayLength = rand(2, 20);
+    for(let x = 0; x < arrayLength; x++) {
+        innerArray.push(string[rand(0, (string.length - 1))]);
+    }
+    array.push(innerArray.sort());
+}
+
+// let map1 = array.map(x => '<br/>' + x);
+let map1 = array.join('<br/>');
+
+document.write(map1);
+console.log(array);
+
+//Funkcijos
+//1 užduotis
+
+
+
+
+    </script>
+</body>
+</html>
